@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>BUSCAMINAS</title>
+</head>
+
+<body>
+    <form action="">
+        <b>Filas: </b><input type="text" id="Tamano" tabindex="1" name="Tamano" size="3" value="10"><br>
+        <b>Bombas: </b><input type="text" id="N_bombas" tabindex="2" name="N_bombas" size="3" value="10"><br>
+        <input type="button" class="boton" name="Cambiar" value="Cambiar" onclick="cuadros=parseInt(window.document.formulario2.Tamano.value); bombas=parseInt(window.document.formulario2.N_bombas.value); Construye()">
+        <input type="button" class="boton" name="Recargar" value="Nueva" onclick="Construye();">
+        <input type="button" class="boton" name="Nuevo" value="Reiniciar" onclick="Limpiar();">
+    </form>
+    <div id="cuadro"></div>
+    <script src="assets/js/buscaminas.js"></script>
+</body>
+
+</html>
