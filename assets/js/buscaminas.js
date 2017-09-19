@@ -47,11 +47,16 @@ function Marca(x, y) {
 function Tablero(N) {
     var i, j;
     tablero = new Array(N)
-    for (i = 0; i < N; i++)
+    for (i = 0; i < N; i++) {
         tablero[i] = new Array(N);
-    for (i = 0; i < N; i++)
-        for (j = 0; j < N; j++)
+    }
+
+    for (i = 0; i < N; i++) {
+        for (j = 0; j < N; j++) {
             tablero[i][j] = 0;
+        }
+    }
+
 }
 
 //Funcion que construye el tablero graficamente e internamente
@@ -63,8 +68,10 @@ function Construye() {
     var Contenido = "<form action='' name='form1'><table>";
     for (i = 0; i < cuadros; i++) {
         Contenido = Contenido + "<tr>";
-        for (j = 0; j < cuadros; j++)
+        for (j = 0; j < cuadros; j++) {
             Contenido = Contenido + "<td><input type='button' class='boton1' id='boton_" + i.toString() + "_" + j.toString() + "' onclick='Chequea(" + i.toString() + "," + j.toString() + ");'></td>";
+        }
+
         Contenido = Contenido + "</tr>"
     }
     Contenido = Contenido + "</table></form>";
@@ -93,32 +100,44 @@ function Abre(x, y) {
 }
 
 function Chequea(x, y) {
-    if (tablero[x][y] >= 0){
+    if (tablero[x][y] >= 0) {
         Abre(x, y);
     } else {
-        for (i = 0; i < cuadros; i++)
-            for (j = 0; j < cuadros; j++)
-                if (tablero[i][j] >= 0)
+        for (i = 0; i < cuadros; i++) {
+            for (j = 0; j < cuadros; j++) {
+                if (tablero[i][j] >= 0) {
                     window.document.form1.elements[j + cuadros * i].value = tablero[i][j];
-                else
+                } else {
                     window.document.form1.elements[j + cuadros * i].style.background = "#AA0000";
+                }
+
+            }
+
+        }
         alert("Perdiste");
         Quedan = 0;
     }
     if (Quedan == bombas) {
-        for (i = 0; i < cuadros; i++)
-            for (j = 0; j < cuadros; j++)
-                if (tablero[i][j] < 0)
+        for (i = 0; i < cuadros; i++) {
+            for (j = 0; j < cuadros; j++) {
+                if (tablero[i][j] < 0) {
                     window.document.form1.elements[j + cuadros * i].background = "#00AA00";
+                }
+
+            }
+
+        }
+
         alert("Ganaste");
     }
 }
 function Limpiar() {
     var i, j;
-    for (i = 0; i < cuadros; i++)
+    for (i = 0; i < cuadros; i++) {
         for (j = 0; j < cuadros; j++) {
             window.document.form1.elements[j + cuadros * i].style.background = "#BBBBBB";
             window.document.form1.elements[j + cuadros * i].value = "";
         }
+    }
     Quedan = cuadros * cuadros;
 }
