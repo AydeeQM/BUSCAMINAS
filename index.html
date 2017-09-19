@@ -9,8 +9,8 @@
     <title>BUSCAMINAS</title>
 </head>
 
-<body>
-    <form action="">
+<body onload="Construye();">
+    <form name="formulario2" action="">
         <b>Filas: </b><input type="text" id="Tamano" tabindex="1" name="Tamano" size="3" value="10"><br>
         <b>Bombas: </b><input type="text" id="N_bombas" tabindex="2" name="N_bombas" size="3" value="10"><br>
         <input type="button" class="boton" name="Cambiar" value="Cambiar" onclick="cuadros=parseInt(window.document.formulario2.Tamano.value); bombas=parseInt(window.document.formulario2.N_bombas.value); Construye()">
